@@ -7,7 +7,7 @@ namespace UpSkillWebApi.Controllers
 {
 
     [Route("api/[controller]")]
-    [ApiController]
+    [ApiController] 
     public class UpSkillController : ControllerBase
     {
         private readonly IDatabase dal;

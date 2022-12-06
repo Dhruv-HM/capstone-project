@@ -1,12 +1,18 @@
 import { Component } from "@angular/core";
 
-export class  {
-    CategoryId:number;
-    CategoryName:string
-    ImageUrl:string
-    constructor(CategoryId:number,CategoryName:string,ImageUrl:string){
-        this.CategoryId=CategoryId;
-        this.CategoryName=CategoryName;
-        this.ImageUrl=ImageUrl;
+export class User {
+    UserId:number;
+    RoleId:number;
+    UserName:string;
+    Password:string;
+    Email:string;
+    PictureUrl:string;
+    constructor(UserId:number,RoleId:number,UserName:string,Password:string,Email:string,PictureUrl:string){
+       this.UserId=UserId;
+       this.RoleId=RoleId;
+       this.UserName=UserName;
+       this.Password=Password;
+       this.Email=Email;
+       this.PictureUrl=PictureUrl;
     }
 }
