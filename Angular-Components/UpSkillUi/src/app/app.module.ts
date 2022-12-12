@@ -17,6 +17,8 @@ import { AllCategoriesComponent } from './components/all-categories/all-categori
 import { HomeComponent } from './components/home/home.component';
 import { AddVideoComponent } from './components/add-video/add-video.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { CourseListComponent } from './components/course-list/course-list.component';
+import { AddCourseComponent } from './components/add-course/add-course.component';
 
 
 const routes: Routes=[
@@ -47,6 +49,16 @@ const routes: Routes=[
   {
     path:"sign-up",
     component:SignUpComponent
+  },
+  {
+    path:"courses/:id",
+    component:CourseListComponent,
+    canActivate:[RouteGuard]
+  },
+  {
+    path:"add-course",
+    component:AddCourseComponent,
+    canActivate:[RouteGuard]
   }
 ]
 @NgModule({
@@ -62,6 +74,8 @@ const routes: Routes=[
     HomeComponent,
     AddVideoComponent,
     SignUpComponent,
+    CourseListComponent,
+    AddCourseComponent,
     
   ],
 

@@ -54,6 +54,15 @@ export class UpskillService {
     return this.http.get<User>(this.baseUrl+"")
   }
 
+  //service-function
+  getCoursesByCat(catId:number):Observable<Course[]>{
+    var courses=this.http.get<Course[]>(this.baseUrl+"GetCoursesByCategoryId/"+catId);
+    return courses;
+  }
+
+  addCourse(course:Course):Observable<Course>{
+    return this.http.post<Course>(this.baseUrl+"AddCourse",course)
+  }
 
   
 }
