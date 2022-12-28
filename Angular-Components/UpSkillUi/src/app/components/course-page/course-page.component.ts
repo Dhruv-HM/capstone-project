@@ -62,12 +62,6 @@ export class CoursePageComponent implements OnInit {
             break;
           }
           
-
-
-
-
-
-
         }
 
         if(this.course_flag==0){
@@ -78,11 +72,6 @@ export class CoursePageComponent implements OnInit {
           this.router.navigate(['/']);
         }
 
-
-        }
-
-        for (let index = 0; index < this.course.rating; index++) {
-          this.rating_arr.push(index);
         }
 
 
@@ -104,6 +93,17 @@ export class CoursePageComponent implements OnInit {
     this.review.author=this.author;
     this.review.courseId=this.courseId;
     this.upskillservice.addReview(this.review).subscribe(res=>{this.router.navigate(["/course-page"]);location.reload()})
+  }
+
+  make_stars(review:Review){
+    for (let index = 0; index < review.rating; index++) {
+      this.rating_arr.push(index);
+      console.log(this.course.rating);
+    }
+  }
+
+  empty_stars(){
+    this.rating_arr=[];
   }
 
 }
