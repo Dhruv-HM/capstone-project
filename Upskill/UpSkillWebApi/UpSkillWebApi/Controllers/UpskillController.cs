@@ -124,9 +124,9 @@ namespace UpSkillWebApi.Controllers
 
         [HttpPost]
         [Route("AddUser")]
-        public void AddUser(User user)
+        public string AddUser(User user)
         {
-            dal.AddUser(user);
+           return dal.AddUser(user);
         }
 
         [HttpGet]

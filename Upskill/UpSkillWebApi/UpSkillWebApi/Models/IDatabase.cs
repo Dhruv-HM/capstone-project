@@ -34,7 +34,7 @@
         public void AddCourse(EnrolledCourses course,int UserId);  // adding the course to user's enrolled courses 
 
         //calls for Users- this will used for authentication
-        public void AddUser(User user);
+        public string AddUser(User user);
 
         public User GetUserByEmail(string email);   
 
