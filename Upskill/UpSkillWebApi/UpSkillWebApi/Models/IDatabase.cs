@@ -38,15 +38,7 @@
 
         public User GetUserByEmail(string email);   
 
-
-        // to-do add the functions here
-
-
-        //calls for Roles
         public Role GetRole(int UserId);
 
-        
-
-        
     }
 }

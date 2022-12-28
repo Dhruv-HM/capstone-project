@@ -132,10 +132,19 @@ namespace UpSkillWebApi.Models
             return videos;
         }
 
-        public void AddUser(User user)
+        public string AddUser(User user)
         {
-            dbCtx.User.Add(user);
-            dbCtx.SaveChanges();
+            var data = dbCtx.User.Where(u => u.Email == user.Email).SingleOrDefault();
+            if (data == null)
+            {
+                dbCtx.User.Add(user);
+                dbCtx.SaveChanges();
+                return "{\"msg\":\"ohk\"}";
+            }
+            else
+            {
+                return "{\"msg\":\"duplicate\"}";
+            }
         }
 
         public User GetUserByEmail(string email)
