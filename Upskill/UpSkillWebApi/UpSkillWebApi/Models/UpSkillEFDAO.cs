@@ -2,6 +2,7 @@
 
 namespace UpSkillWebApi.Models
 {
+    
     public class UpSkillEFDAO : IDatabase
     {
         private readonly UpSkillDbContext dbCtx;

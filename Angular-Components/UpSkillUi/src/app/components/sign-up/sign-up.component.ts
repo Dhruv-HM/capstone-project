@@ -60,19 +60,11 @@ export class SignUpComponent implements OnInit {
     this.upSkillservice.addUser(this.client).subscribe(res=>{
       console.log(res); 
       response = res;
-      console.log('response:',response.msg);
-      //window.alert(response.msg);
-      if(response.msg==="duplicate"){
-               alert("Email Already exist");
-      }
-      else{
-        // alert(response.msg+" please try with other email id");
+     
          this.router.navigate(['/login']);
 
-      }
+      
     });
 
   }
-  
-
 }
