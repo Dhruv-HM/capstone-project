@@ -7,4 +7,5 @@
     * Text Box takes input on the front-end, email goes to admin
 * Login/Auth
     * Only Frontend for now.
+* Side Note
     
