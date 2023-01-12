@@ -101,7 +101,7 @@ namespace UpSkillWebApi.Controllers
         //enrolled courses
         [HttpGet]
         [Route("GetEnrolledCourses")]
-        public List<EnrolledCourses> GetEnrolledCourses(int userid)
+        public List<Course> GetEnrolledCourses(int userid)
         {
             return dal.GetAllEnrolledCoursesByUserId(userid);
         }
@@ -127,6 +127,20 @@ namespace UpSkillWebApi.Controllers
         public User GetUserByEmail(string email)
         {
             return dal.GetUserByEmail(email);
+        }
+
+        [HttpPost]
+        [Route("AddEnrolledCourse")]
+        public void AddEnrolledCourse(EnrolledCourses course)
+        {
+             dal.AddEnrolledCourse(course);
+        }
+
+        [HttpDelete]
+        [Route("delete-course/{courseId}")]
+        public bool DeleteCourse(int courseId)
+        {
+            return dal.DeleteCourse(courseId);
         }
 
 

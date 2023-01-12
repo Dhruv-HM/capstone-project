@@ -22,10 +22,7 @@ namespace UpSkillWebApi.Models
             dbCtx.SaveChanges();
         }
 
-        public void AddCourse(EnrolledCourses course, int UserId)
-        {
-           throw new NotImplementedException();
-        }
+
 
         public void AddReview(Review review)
         {
@@ -44,7 +41,7 @@ namespace UpSkillWebApi.Models
             throw new NotImplementedException();
         }
 
-        public void DeleteCourse(int CourseId)
+        public bool DeleteCourse(int CourseId)
         {
             //write code to delete video links
             var course = dbCtx.Course.Where(o => o.CourseId == CourseId).SingleOrDefault();
@@ -53,6 +50,12 @@ namespace UpSkillWebApi.Models
             {
                 dbCtx.Remove(course);
                 dbCtx.SaveChanges();
+                return true;
+            }
+
+            else
+            {
+                return false;
             }
         }
 
@@ -81,9 +84,17 @@ namespace UpSkillWebApi.Models
             return lstCourses;
         }
 
-        public List<EnrolledCourses> GetAllEnrolledCoursesByUserId(int id)
+        public List<Course> GetAllEnrolledCoursesByUserId(int id)
         {
-            throw new NotImplementedException();
+            //join course c on enrolledCourses e where id=userId 
+            var courses = new List<Course>();
+            var enrolledCourses=dbCtx.EnrolledCourse.Where(o => o.UserId == id).ToList();
+            foreach (var course in enrolledCourses)
+            {
+                courses.Add(this.GetCourse(course.CourseID));
+
+            }
+            return courses;
         }
 
         //goes to the course page
@@ -127,6 +138,14 @@ namespace UpSkillWebApi.Models
         {
             var user = dbCtx.User.Where(o => o.Email == email).SingleOrDefault();
             return user;
+        }
+
+        public void AddEnrolledCourse(EnrolledCourses course)
+        {
+            dbCtx.EnrolledCourse.Add(course);
+            dbCtx.SaveChanges();
+
+
         }
     }
 }

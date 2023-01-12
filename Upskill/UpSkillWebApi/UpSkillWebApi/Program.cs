@@ -31,7 +31,7 @@ namespace UpSkillWebApi
             
 
 
-
+    
             //enable CORS policy
             builder.Services.AddCors(options => { options.AddPolicy("clients-allowed", policy => policy.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod()); });
 

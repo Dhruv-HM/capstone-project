@@ -9,7 +9,7 @@
 
         public Course GetCourse(int id);    
         public List<Course> GetCoursesByCategory(int CatId);
-        public void DeleteCourse(int CourseId);
+        public bool DeleteCourse(int CourseId);
 
         //calls for Categories
         List<Category> GetAllCategories();
@@ -28,10 +28,12 @@
         public void DeleteAllVideos(int CourseID);
 
         //calls for enrolled courses
-        public List<EnrolledCourses> GetAllEnrolledCoursesByUserId(int id);
+        public List<Course> GetAllEnrolledCoursesByUserId(int id);
 
-        public void AddCourse(EnrolledCourses course,int UserId);  // adding the course to user's enrolled courses 
+        public void AddEnrolledCourse(EnrolledCourses course);
 
+/*        public void AddCourse(EnrolledCourses course,int UserId);  // adding the course to user's enrolled courses 
+*/
         //calls for Users- this will used for authentication
         public void AddUser(User user);
 
